@@ -9,19 +9,19 @@ namespace Input {
 	{
 	}
 
-	void KeyPressed(Key key)
+	void KeyPressed(sf::Keyboard::Key key)
 	{
 	}
 
-	void KeyReleased(Key key)
+	void KeyReleased(sf::Keyboard::Key key)
 	{
 	}
 
-	void MouseClicked(MouseButton mouseButton)
+	void MouseClicked(sf::Mouse::Button mouseButton)
 	{
 	}
 
-	void MouseReleased(MouseButton mouseButton)
+	void MouseReleased(sf::Mouse::Button mouseButton)
 	{
 	}
 

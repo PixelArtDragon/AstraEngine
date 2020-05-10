@@ -57,7 +57,9 @@ namespace Rendering {
 	void Shader::Load()
 	{
 		glUseProgram(program);
-		glUniformMatrix4fv(camera_uniform, 1, GL_FALSE, glm::value_ptr(GetActiveCamera().GetTransform()->matrix()));
+		Camera& camera = GetActiveCamera();
+
+		glUniformMatrix4fv(camera_uniform, 1, GL_FALSE, glm::value_ptr(camera.GetProjection() * camera.GetView()));
 		
 	}
 

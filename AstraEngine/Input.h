@@ -1,8 +1,7 @@
 #pragma once
 #include <glm/vec2.hpp>
 #include "Callback.h"
-#include "Key.h"
-#include "MouseButton.h"
+#include <SFML/Window/Event.hpp>
 
 namespace Input {
 	enum class InputType {
@@ -12,10 +11,10 @@ namespace Input {
 	};
 	void Init();
 
-	void KeyPressed(Key key);
-	void KeyReleased(Key key);
-	void MouseClicked(MouseButton mouseButton);
-	void MouseReleased(MouseButton mouseButton);
+	void KeyPressed(sf::Keyboard::Key key);
+	void KeyReleased(sf::Keyboard::Key key);
+	void MouseClicked(sf::Mouse::Button mouseButton);
+	void MouseReleased(sf::Mouse::Button mouseButton);
 
 	glm::vec2 GetMousePosition();
 }

@@ -1,6 +1,7 @@
 #include "Window.h"
 #include <SFML/Graphics.hpp>
 #include "WindowUtils.h"
+#include "Input.h"
 
 
 namespace Window {
@@ -33,7 +34,7 @@ namespace Window {
 				Input::KeyReleased(event.key.code);
 				break;
 			case sf::Event::MouseMoved:
-				Input::MouseMoved(event.mouseMove.x, event.mouseMove.y);
+				//Input::MouseMoved(event.mouseMove.x, event.mouseMove.y);
 				break;
 			case sf::Event::MouseButtonPressed:
 				Input::MouseClicked(event.mouseButton.button);

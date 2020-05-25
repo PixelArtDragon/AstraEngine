@@ -1,5 +1,8 @@
 #pragma once
 #include <string>
+#include <vector>
+#include "Texture.h"
+#include <glew/glew.h>
 
 namespace Rendering {
 	struct Material
@@ -7,5 +10,6 @@ namespace Rendering {
 	public:
 		Material();
 		~Material();
+		std::vector<Texture> textures;
 	};
 }

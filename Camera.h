@@ -10,5 +10,6 @@ namespace Rendering {
 		virtual Transform* GetTransform();
 		virtual glm::mat4 GetView();
 		virtual glm::mat4 GetProjection();
+		virtual void Update();
 	};
 }

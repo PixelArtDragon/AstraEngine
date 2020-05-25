@@ -8,7 +8,11 @@ namespace Window {
 	sf::RenderWindow* _sfWindow;
 
 	void Init() {
-		_sfWindow = new sf::RenderWindow(sf::VideoMode(800, 600), "OpenGL");
+		sf::ContextSettings settings;
+		settings.majorVersion = 4;
+		settings.minorVersion = 5;
+		settings.depthBits = 24;
+		_sfWindow = new sf::RenderWindow(sf::VideoMode(800, 600), "OpenGL", sf::Style::Default, settings);
 	}
 
 	bool IsOpen()

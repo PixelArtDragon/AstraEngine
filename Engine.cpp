@@ -3,12 +3,13 @@
 #include "Input.h"
 #include "Rendering.h"
 #include "DefaultCamera.h"
+#include "Clock.h"
 
 namespace Engine {
 	void Init() {
 		Window::Init();
 		Rendering::Init();
-		Input::Init();
+		Clock::Init();
 	}
 	void Prerun() {
 		if (Rendering::camera == nullptr) {
@@ -21,6 +22,8 @@ namespace Engine {
 		while (Window::IsOpen())
 		{
 			Window::PollEvents();
+			Input::Update();
+			Clock::tick();
 			Rendering::RenderFrame();
 			Window::ShowFrame();
 		}

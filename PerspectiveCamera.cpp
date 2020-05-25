@@ -8,7 +8,7 @@ namespace Rendering {
 		_transform = new Transform();
 		_FOV = 45;
 		_z_near = 0.1;
-		_z_far = 100;
+		_z_far = 10;
 		recalc_projection = true;
 		recalc_view = true;
 	}
@@ -20,6 +20,7 @@ namespace Rendering {
 	{
 		if (recalc_view) {
 			cached_view = glm::inverse(_transform->matrix());
+			//recalc_view = false;
 		}
 		return cached_view;
 	}
@@ -28,6 +29,7 @@ namespace Rendering {
 		if (recalc_projection) {
 			glm::vec2 calc_window_bounds = window_size();
 			cached_projection = glm::perspective(_FOV, calc_window_bounds.x / calc_window_bounds.y, _z_near, _z_far);
+			recalc_projection = false;
 		}
 		return cached_projection;
 	}

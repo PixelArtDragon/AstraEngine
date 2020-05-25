@@ -8,7 +8,7 @@ namespace Rendering {
 	{
 	public:
 		MeshRenderer();
-		
+		MeshRenderer(std::string filename);
 		~MeshRenderer();
 
 		// Inherited via Drawable3D
@@ -19,8 +19,9 @@ namespace Rendering {
 		std::vector<VertexIndex> triangles;
 		std::vector<GLuint> textures;
 
-	private:
 		bool triangles_streamed;
+		bool vertices_streamed;
+	private:
 
 		GLuint vao;
 		GLuint vbo;

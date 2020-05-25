@@ -11,6 +11,7 @@ namespace Rendering {
 	void RenderFrame();
 	
 	void AddDrawable(Drawable3D* drawable);
+	void RemoveDrawable(Drawable3D* drawable);
 
 	Camera & GetActiveCamera();
 	extern Camera * camera;

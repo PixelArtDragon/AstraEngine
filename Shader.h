@@ -16,5 +16,6 @@ namespace Rendering {
 		GLuint program;
 		GLuint camera_uniform;
 		GLuint object_uniform;
+		GLuint texture_uniform;
 	};
 }

@@ -4,6 +4,7 @@
 #include <map>
 #include <glew/glew.h>
 #include <algorithm>
+#include "GLDebug.h"
 
 namespace Rendering {
 
@@ -26,7 +27,14 @@ namespace Rendering {
 	std::vector<Drawable3D*> ordered_drawables;
 
 	void Init() {
+		glewExperimental = true;
 		glewInit();
+		//glEnable(GL_BLEND);
+		//glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		glEnable(GL_DEPTH_TEST);
+		glDepthFunc(GL_LEQUAL);
+		//glDepthRange(0.0f, 1.0f);
+		checkError();
 	}
 	void Reshape(glm::vec2 newDimensions)
 	{
@@ -55,7 +63,7 @@ namespace Rendering {
 	void RenderFrame()
 	{
 		glClearColor(0.0, 0.5, 0.5, 0);
-		glClearDepth(1.0f);
+		//glClearDepth(0.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		glEnable(GL_CULL_FACE);
 		
@@ -66,6 +74,15 @@ namespace Rendering {
 		drawables[drawable->name] = drawable;
 		auto it = std::upper_bound(ordered_drawables.begin(), ordered_drawables.end(), drawable, compareDrawables);
 		ordered_drawables.insert(it, drawable);
+	}
+
+	void RemoveDrawable(Drawable3D * drawable)
+	{
+		drawables.erase(drawable->name);
+		auto it = std::find(ordered_drawables.begin(), ordered_drawables.end(), drawable);
+		if (it != ordered_drawables.end()) {
+			ordered_drawables.erase(it);
+		}
 	}
 
 	Camera & GetActiveCamera()

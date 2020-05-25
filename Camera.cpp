@@ -25,4 +25,7 @@ namespace Rendering {
 	{
 		return glm::mat4();
 	}
+	void Camera::Update()
+	{
+	}
 }

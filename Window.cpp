@@ -68,9 +68,14 @@ namespace Window {
 	Rect GetWindowBounds()
 	{
 		Rect rect;
-		//TODO: add definition;
-		//glm::vec3 size(_sfWindow->getSize());
+		//TODO:
+		
 		return rect;
+	}
+	Rect GetViewport()
+	{
+		sf::IntRect sfRect = _sfWindow->getViewport(_sfWindow->getView());
+		return Rect(sfRect.left, sfRect.top, sfRect.width, sfRect.height);
 	}
 	glm::vec2 GetWindowSize()
 	{

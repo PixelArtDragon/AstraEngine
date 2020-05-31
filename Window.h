@@ -17,6 +17,8 @@ namespace Window {
 
 	Rect GetWindowBounds();
 
+	Rect GetViewport();
+
 	glm::vec2 GetWindowSize();
 }
 

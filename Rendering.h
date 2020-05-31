@@ -4,6 +4,7 @@
 #include "Drawable3D.h"
 #include "Camera.h"
 #include "LightSource.h"
+#include "RenderOptions.h"
 
 namespace Rendering {
 	void Init();
@@ -18,4 +19,5 @@ namespace Rendering {
 
 	Camera & GetActiveCamera();
 	extern Camera * camera;
+	extern RenderOptions rendering_options;
 }

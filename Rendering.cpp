@@ -5,11 +5,13 @@
 #include <glew/glew.h>
 #include <algorithm>
 #include "GLDebug.h"
+#include "Window.h"
 
 namespace Rendering {
 
 	Camera* camera;
 	Lightsource* light_source;
+	RenderOptions rendering_options;
 
 	bool compareDrawables(Drawable3D* lhs, Drawable3D* rhs) {
 		if (lhs->material == rhs->material) {
@@ -30,10 +32,20 @@ namespace Rendering {
 	void Init() {
 		glewExperimental = true;
 		glewInit();
+
+		rendering_options.window_bounds = Window::GetViewport();
+		rendering_options.depth_enabled = true;
+		rendering_options.depth_function = GL_LEQUAL;
+		rendering_options.clear_depth = 1.0f;
+		rendering_options.clear_color = glm::vec4(0.0, 0.5, 0.5, 0.0);
+		rendering_options.clear_bits = GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT;
+		rendering_options.culling_enabled = true;
+		rendering_options.cull_face = GL_BACK;
+
+
+
 		//glEnable(GL_BLEND);
 		//glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-		glEnable(GL_DEPTH_TEST);
-		//glDepthRange(0.0f, 1.0f);
 		checkError();
 	}
 	void Reshape(glm::vec2 newDimensions)
@@ -70,16 +82,7 @@ namespace Rendering {
 			}
 			light_source->EndRender();
 		}
-		glViewport(0, 0, 800, 600);
-		glClearColor(0.0, 0.5, 0.5, 0);
-		glClearDepth(1.0f);
-		//glClearDepth(0.0f);
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-		glEnable(GL_CULL_FACE);
-		glCullFace(GL_BACK);
-		glDepthFunc(GL_LEQUAL);
-		glPolygonMode(GL_FRONT, GL_LINE);
-
+		rendering_options.Apply();
 		DrawDrawables();
 	}
 	void AddDrawable(Drawable3D * drawable)

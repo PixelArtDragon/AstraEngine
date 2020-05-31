@@ -9,6 +9,7 @@
 namespace Rendering {
 
 	Camera* camera;
+	Lightsource* light_source;
 
 	bool compareDrawables(Drawable3D* lhs, Drawable3D* rhs) {
 		if (lhs->material == rhs->material) {
@@ -32,13 +33,13 @@ namespace Rendering {
 		//glEnable(GL_BLEND);
 		//glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 		glEnable(GL_DEPTH_TEST);
-		glDepthFunc(GL_LEQUAL);
 		//glDepthRange(0.0f, 1.0f);
 		checkError();
 	}
 	void Reshape(glm::vec2 newDimensions)
 	{
 	}
+
 
 	void DrawDrawables() {
 		if (ordered_drawables.size() == 0) {
@@ -62,11 +63,23 @@ namespace Rendering {
 	}
 	void RenderFrame()
 	{
+		if (light_source != nullptr) {
+			light_source->BeginRender();
+			for (size_t i = 0; i < ordered_drawables.size(); i++) {
+				light_source->Render(ordered_drawables[i]);
+			}
+			light_source->EndRender();
+		}
+		glViewport(0, 0, 800, 600);
 		glClearColor(0.0, 0.5, 0.5, 0);
+		glClearDepth(1.0f);
 		//glClearDepth(0.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		glEnable(GL_CULL_FACE);
-		
+		glCullFace(GL_BACK);
+		glDepthFunc(GL_LEQUAL);
+		glPolygonMode(GL_FRONT, GL_LINE);
+
 		DrawDrawables();
 	}
 	void AddDrawable(Drawable3D * drawable)

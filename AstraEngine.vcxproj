@@ -137,9 +137,11 @@
     <ClCompile Include="DefaultCamera.cpp" />
     <ClCompile Include="Drawable3D.cpp" />
     <ClCompile Include="Engine.cpp" />
+    <ClCompile Include="FrameBuffer.cpp" />
     <ClCompile Include="GLDebug.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="InputMapping.cpp" />
+    <ClCompile Include="LightSource.cpp" />
     <ClCompile Include="LoadedShaders.cpp" />
     <ClCompile Include="Material.cpp" />
     <ClCompile Include="MeshRenderer.cpp" />
@@ -147,8 +149,10 @@
     <ClCompile Include="Rect.cpp" />
     <ClCompile Include="Rendering.cpp" />
     <ClCompile Include="Shader.cpp" />
+    <ClCompile Include="ShaderFileLoader.cpp" />
     <ClCompile Include="ShaderLoader.cpp" />
     <ClCompile Include="Clock.cpp" />
+    <ClCompile Include="ShadowBuffer.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="Transform.cpp" />
     <ClCompile Include="Vertex.cpp" />
@@ -161,6 +165,7 @@
     <ClInclude Include="DefaultCamera.h" />
     <ClInclude Include="Drawable3D.h" />
     <ClInclude Include="Engine.h" />
+    <ClInclude Include="FrameBuffer.h" />
     <ClInclude Include="GLDebug.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="InputMapping.h" />
@@ -172,9 +177,11 @@
     <ClInclude Include="Rect.h" />
     <ClInclude Include="Rendering.h" />
     <ClInclude Include="Shader.h" />
+    <ClInclude Include="ShaderFileLoader.h" />
     <ClInclude Include="ShaderLoader.h" />
     <ClInclude Include="Clock.h" />
     <ClInclude Include="LoadedTextures.h" />
+    <ClInclude Include="ShadowBuffer.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="Transform.h" />
     <ClInclude Include="Vertex.h" />

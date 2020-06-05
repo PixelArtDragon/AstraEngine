@@ -4,6 +4,7 @@
 #include "Rendering.h"
 #include "DefaultCamera.h"
 #include "Clock.h"
+#include "Updating.h"
 
 namespace Engine {
 	void Init() {
@@ -21,9 +22,10 @@ namespace Engine {
 		Prerun();
 		while (Window::IsOpen())
 		{
+			Clock::tick();
 			Window::PollEvents();
 			Input::Update();
-			Clock::tick();
+			Updating::Update();
 			Rendering::RenderFrame();
 			Window::ShowFrame();
 		}

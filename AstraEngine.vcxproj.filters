@@ -96,6 +96,12 @@
     <ClCompile Include="RenderOptions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Updating.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Updator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Window.h">
@@ -180,6 +186,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="RenderOptions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Updating.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Updator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

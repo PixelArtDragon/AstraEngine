@@ -9,6 +9,7 @@ namespace Clock
 	extern float deltaTime;
 	void tick();
 	void Init();
+	extern float time_since_start;
 	extern timestamp gameStart;
 	extern timestamp lastTime;
 	extern timestamp currentTime;

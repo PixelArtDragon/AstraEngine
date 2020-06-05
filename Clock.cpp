@@ -4,6 +4,7 @@ using namespace std::chrono;
 
 namespace Clock {
 	float deltaTime = 0.166666666666666667f; //initialize to 1/60 of a second
+	float time_since_start = 0;
 	timestamp gameStart;
 	timestamp lastTime;
 	timestamp currentTime;
@@ -16,6 +17,7 @@ namespace Clock {
 		currentTime = high_resolution_clock::now();
 		duration<float> myDeltaTime = currentTime - lastTime;
 		deltaTime = myDeltaTime.count();
+		time_since_start += deltaTime;
 	}
 
 	void Init()

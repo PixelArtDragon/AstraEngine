@@ -20,4 +20,8 @@ namespace Rendering {
 	Camera & GetActiveCamera();
 	extern Camera * camera;
 	extern RenderOptions rendering_options;
+
+	float getDepth(glm::vec2 screen_point);
+
+	glm::vec3 ScreenPointToWorldPosition(glm::vec2 screen_point);
 }

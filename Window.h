@@ -20,5 +20,7 @@ namespace Window {
 	Rect GetViewport();
 
 	glm::vec2 GetWindowSize();
+
+	glm::vec2 NormalizeScreenCoordinates(glm::vec2 screen_coordinate);
 }
 

@@ -38,7 +38,7 @@ namespace Window {
 				Input::KeyReleased(event.key.code);
 				break;
 			case sf::Event::MouseMoved:
-				//Input::MouseMoved(event.mouseMove.x, event.mouseMove.y);
+				Input::MouseMoved(event.mouseMove.x, event.mouseMove.y);
 				break;
 			case sf::Event::MouseButtonPressed:
 				Input::MouseClicked(event.mouseButton.button);
@@ -80,5 +80,9 @@ namespace Window {
 	glm::vec2 GetWindowSize()
 	{
 		return SFMLtoGLM(_sfWindow->getSize());
+	}
+	glm::vec2 NormalizeScreenCoordinates(glm::vec2 screen_coordinate)
+	{
+		return (glm::vec2(screen_coordinate.x / _sfWindow->getSize().x, -screen_coordinate.y / _sfWindow->getSize().y) * 2.0f) - glm::vec2(1, -1);
 	}
 }

@@ -28,4 +28,8 @@ namespace Rendering {
 	void Camera::Update()
 	{
 	}
+	float Camera::GetRealDepth(float buffer_depth)
+	{
+		return buffer_depth;
+	}
 }

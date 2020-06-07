@@ -76,4 +76,8 @@ namespace Rendering {
 		_z_far = value;
 		recalc_projection = true;
 	}
+	float PerspectiveCamera::GetRealDepth(float buffer_depth)
+	{
+		return -(_z_far * _z_near) / (buffer_depth * (_z_far * _z_near) - _z_far);
+	}
 }

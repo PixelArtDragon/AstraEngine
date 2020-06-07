@@ -23,6 +23,8 @@ namespace Rendering {
 		void z_near(float value);
 		void z_far(float value);
 
+		virtual float GetRealDepth(float buffer_depth) override;
+
 	private:
 		Transform * _transform;
 

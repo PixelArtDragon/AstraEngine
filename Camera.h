@@ -11,5 +11,7 @@ namespace Rendering {
 		virtual glm::mat4 GetView();
 		virtual glm::mat4 GetProjection();
 		virtual void Update();
+
+		virtual float GetRealDepth(float buffer_depth);
 	};
 }

@@ -6,6 +6,7 @@
 #include <algorithm>
 #include "GLDebug.h"
 #include "Window.h"
+#include <glm/gtx/compatibility.hpp>
 
 namespace Rendering {
 
@@ -104,5 +105,28 @@ namespace Rendering {
 	Camera & GetActiveCamera()
 	{
 		return *camera;
+	}
+
+	float getDepth(glm::vec2 screen_point)
+	{
+		GLfloat depth;
+		glReadPixels((int)(screen_point.x), Window::GetWindowSize().y - (int)(screen_point.y), 1, 1, GL_DEPTH_COMPONENT, GL_FLOAT, &depth);
+		checkError();
+		return (float)depth;
+	}
+	glm::vec3 ScreenPointToWorldPosition(glm::vec2 screen_point)
+	{
+		float z_depth = getDepth(screen_point);
+
+		glm::vec2 normalizedScreenPoint = Window::NormalizeScreenCoordinates(screen_point);
+
+		glm::mat4 inverse_transform = glm::inverse(camera->GetView()) * glm::inverse(camera->GetProjection());
+
+		glm::vec4 p = inverse_transform * glm::vec4(normalizedScreenPoint, -1, 1);
+		glm::vec4 q = inverse_transform * glm::vec4(normalizedScreenPoint, 1, 1);
+
+		glm::vec4 world_vector =  glm::lerp(p, q, z_depth);
+
+		return world_vector / world_vector.w;
 	}
 }

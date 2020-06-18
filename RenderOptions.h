@@ -1,6 +1,6 @@
 #pragma once
-#include "Rect.h"
 #include <glew/glew.h>
+#include "Rect.h"
 #include <glm/vec4.hpp>
 
 class RenderOptions

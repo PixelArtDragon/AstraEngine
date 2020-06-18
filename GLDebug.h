@@ -1,5 +1,4 @@
 #pragma once
-#pragma once
 #include "glew/glew.h"
 #include <string>
 #include <assert.h>

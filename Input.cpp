@@ -5,9 +5,11 @@
 namespace Input {
 	glm::vec2 mousePosition;
 
-	std::unordered_map<KEY_TYPE, Callback*> keyPressedBindings;
-	std::unordered_map<KEY_TYPE, Callback*> keyReleasedBindings;
-	std::unordered_map<KEY_TYPE, Callback*> keyDownBindings;
+	std::unordered_set<KeyCode> downKeys;
+
+	std::unordered_map<KeyCode, Callback*> keyPressedBindings;
+	std::unordered_map<KeyCode, Callback*> keyReleasedBindings;
+	std::unordered_map<KeyCode, Callback*> keyDownBindings;
 	std::unordered_map<MOUSE_BUTTON, Callback*> mouseDownBindings;
 	std::unordered_map<MOUSE_BUTTON, Callback*> mousePressedBindings;
 	std::unordered_map<MOUSE_BUTTON, Callback*> mouseReleasedBindings;
@@ -15,21 +17,21 @@ namespace Input {
 }
 
 
-void Input::KeyPressed(KEY_TYPE key)
+void Input::KeyPressed(KeyCode key)
 {
 	auto func = keyPressedBindings.find(key);
 	if (func != keyPressedBindings.end()) {
 		func->second->Call();
 	}
-	//downKeys.emplace(key);
+	downKeys.emplace(key);
 }
-void Input::KeyReleased(KEY_TYPE key)
+void Input::KeyReleased(KeyCode key)
 {
 	auto func = keyReleasedBindings.find(key);
 	if (func != keyReleasedBindings.end()) {
 		func->second->Call();
 	}
-	//downKeys.erase(key);
+	downKeys.erase(key);
 }
 
 void Input::MouseClicked(MOUSE_BUTTON mouseButton)
@@ -51,7 +53,13 @@ void Input::MouseReleased(MOUSE_BUTTON mouseButton)
 
 void Input::Update()
 {
-	for (auto keyBinding : keyDownBindings) {
+	for (auto key : downKeys) {
+		std::unordered_map<KeyCode, Callback*>::iterator it = keyDownBindings.find(key);
+		if (it != keyDownBindings.end()) {
+			it->second->Call();
+		}
+	}
+	/*for (auto keyBinding : keyDownBindings) {
 		if (sf::Keyboard::isKeyPressed(keyBinding.first)) {
 			keyBinding.second->Call();
 		}
@@ -60,17 +68,19 @@ void Input::Update()
 		if (sf::Mouse::isButtonPressed(mouseBinding.first)) {
 			mouseBinding.second->Call();
 		}
-	}
+	}*/
 }
 
-bool Input::IsDown(KEY_TYPE key)
+bool Input::IsDown(KeyCode key)
 {
-	return sf::Keyboard::isKeyPressed(key);
+	//return sf::Keyboard::isKeyPressed(key);
+	return false;
 }
 
 bool Input::IsDown(MOUSE_BUTTON mouseButton)
 {
-	return sf::Mouse::isButtonPressed(mouseButton);
+	//return sf::Mouse::isButtonPressed(mouseButton);
+	return false;
 }
 
 void Input::MouseMoved(int newXPos, int newYPos)
@@ -81,7 +91,7 @@ void Input::MouseMoved(int newXPos, int newYPos)
 	}
 }
 
-void Input::RegisterBinding(KEY_TYPE key, Callback* binding, InputType type)
+void Input::RegisterBinding(KeyCode key, Callback* binding, InputType type)
 {
 	switch (type) {
 	case InputType::Key_Down:

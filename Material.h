@@ -1,8 +1,8 @@
 #pragma once
+#include <glew/glew.h>
 #include <string>
 #include <vector>
 #include "Texture.h"
-#include <glew/glew.h>
 
 namespace Rendering {
 	struct Material

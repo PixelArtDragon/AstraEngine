@@ -5,6 +5,8 @@
 namespace Window {
 	void Init();
 
+	void Finish();
+
 	bool IsOpen();
 
 	void PollEvents();
@@ -12,8 +14,6 @@ namespace Window {
 	void ShowFrame();
 
 	void Close();
-
-	glm::vec2 GetMousePosition();
 
 	Rect GetWindowBounds();
 

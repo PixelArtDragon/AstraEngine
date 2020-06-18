@@ -1,11 +1,11 @@
 #include "Rendering.h"
+#include <glew/glew.h>
 #include <string>
 #include <unordered_map>
 #include <map>
-#include <glew/glew.h>
+#include "Window.h"
 #include <algorithm>
 #include "GLDebug.h"
-#include "Window.h"
 #include <glm/gtx/compatibility.hpp>
 
 namespace Rendering {

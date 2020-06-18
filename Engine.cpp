@@ -1,7 +1,7 @@
 #include "Engine.h"
 #include "Window.h"
-#include "Input.h"
 #include "Rendering.h"
+#include "Input.h"
 #include "DefaultCamera.h"
 #include "Clock.h"
 #include "Updating.h"
@@ -32,6 +32,6 @@ namespace Engine {
 	}
 
 	void Finish() {
-
+		Window::Finish();
 	}
 }

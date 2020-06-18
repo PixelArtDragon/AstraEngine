@@ -141,6 +141,7 @@
     <ClCompile Include="GLDebug.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="InputMapping.cpp" />
+    <ClCompile Include="KeyCodes.cpp" />
     <ClCompile Include="LightSource.cpp" />
     <ClCompile Include="LoadedShaders.cpp" />
     <ClCompile Include="Material.cpp" />
@@ -172,6 +173,7 @@
     <ClInclude Include="GLDebug.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="InputMapping.h" />
+    <ClInclude Include="KeyCodes.h" />
     <ClInclude Include="LightSource.h" />
     <ClInclude Include="LoadedShaders.h" />
     <ClInclude Include="Material.h" />

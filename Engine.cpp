@@ -1,15 +1,19 @@
 #include "Engine.h"
-#include "Window.h"
 #include "Rendering.h"
+#include "Window.h"
+#include "UI.h"
 #include "Input.h"
 #include "DefaultCamera.h"
 #include "Clock.h"
 #include "Updating.h"
 
+
+
 namespace Engine {
 	void Init() {
 		Window::Init();
 		Rendering::Init();
+		UI::Init();
 		Clock::Init();
 	}
 	void Prerun() {
@@ -27,6 +31,7 @@ namespace Engine {
 			Input::Update();
 			Updating::Update();
 			Rendering::RenderFrame();
+			UI::Update();
 			Window::ShowFrame();
 		}
 	}

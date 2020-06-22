@@ -97,4 +97,8 @@ namespace Window {
 		glm::tvec2<int> size = GetWindowSize();
 		return (glm::vec2(screen_coordinate.x / size.x, -screen_coordinate.y / size.y) * 2.0f) - glm::vec2(1, -1);
 	}
+	Window * GetWindowPointer()
+	{
+		return _window;
+	}
 }

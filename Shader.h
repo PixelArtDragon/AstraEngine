@@ -1,5 +1,5 @@
 #pragma once
-#include <glew/glew.h>
+#include <GL/glew.h>
 #include "Material.h"
 #include <unordered_map>
 

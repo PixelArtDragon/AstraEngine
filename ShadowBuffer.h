@@ -1,5 +1,5 @@
 #pragma once
-#include <glew/glew.h>
+#include <GL/glew.h>
 #include "Drawable3D.h"
 
 namespace Rendering {

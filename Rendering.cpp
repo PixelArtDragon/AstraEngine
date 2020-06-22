@@ -1,5 +1,5 @@
 #include "Rendering.h"
-#include <glew/glew.h>
+#include <GL/glew.h>
 #include <string>
 #include <unordered_map>
 #include <map>

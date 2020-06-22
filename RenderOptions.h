@@ -1,5 +1,5 @@
 #pragma once
-#include <glew/glew.h>
+#include <GL/glew.h>
 #include "Rect.h"
 #include <glm/vec4.hpp>
 

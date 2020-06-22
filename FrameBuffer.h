@@ -1,5 +1,5 @@
 #pragma once
-#include <glew/glew.h>
+#include <GL/glew.h>
 class FrameBuffer
 {
 public:

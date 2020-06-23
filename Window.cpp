@@ -35,7 +35,7 @@ namespace Window {
 
 		}
 		glfwSetErrorCallback(error_callback);
-		_window = glfwCreateWindow(800, 600, "Title", NULL, NULL);
+		_window = glfwCreateWindow(1366, 768, "Title", NULL, NULL);
 		assert(_window != nullptr);
 		glfwMakeContextCurrent(_window);
 		glfwSetKeyCallback(_window, key_callback);

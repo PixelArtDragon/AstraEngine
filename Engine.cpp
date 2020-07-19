@@ -12,8 +12,8 @@
 namespace Engine {
 	void Init() {
 		Window::Init();
-		Rendering::Init();
 		UI::Init();
+		Rendering::Init();
 		Clock::Init();
 	}
 	void Prerun() {
@@ -30,13 +30,14 @@ namespace Engine {
 			Window::PollEvents();
 			Input::Update();
 			Updating::Update();
-			Rendering::RenderFrame();
 			UI::Update();
+			Rendering::RenderFrame();
 			Window::ShowFrame();
 		}
 	}
 
 	void Finish() {
+		UI::Finish();
 		Window::Finish();
 	}
 }

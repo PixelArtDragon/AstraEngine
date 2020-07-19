@@ -17,11 +17,12 @@ public:
 	glm::vec4 clear_color;
 	bool depth_enabled;
 	GLfloat clear_depth;
+	bool stencil_enabled;
 	GLenum depth_function;
 	GLenum clear_bits;
 	GLenum polygon_mode_face;
 	GLenum polygon_mode;
 
-	void Apply();
+	void Apply(bool shouldClear = true);
 };
 

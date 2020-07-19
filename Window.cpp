@@ -2,7 +2,7 @@
 #include "WindowUtils.h"
 #include "Input.h"
 #include <GLFW/glfw3.h>
-
+#include "UI.h"
 
 namespace Window {
 
@@ -25,6 +25,27 @@ namespace Window {
 		}
 	}
 
+	void mouse_button_callback(GLFWwindow* window, int button, int action, int mods) {
+		switch (action)
+		{
+		case GLFW_PRESS:
+			if (!UI::MouseButtonAction(Input::mousePosition.x, Input::mousePosition.y, button, InputType::Key_Pressed)) {
+				Input::MouseClicked(button);
+			}
+		case GLFW_RELEASE:
+			if (!UI::MouseButtonAction(Input::mousePosition.x, Input::mousePosition.y, button, InputType::Key_Released)) {
+				Input::MouseReleased(button);
+			}
+		default:
+			break;
+		}
+		
+	}
+
+	void mouse_position_callback(GLFWwindow* window, double xpos, double ypos) {
+		Input::MouseMoved((int)xpos, (int)ypos);
+	}
+
 	void error_callback(int error, const char* description) {
 
 	}
@@ -39,7 +60,8 @@ namespace Window {
 		assert(_window != nullptr);
 		glfwMakeContextCurrent(_window);
 		glfwSetKeyCallback(_window, key_callback);
-
+		glfwSetMouseButtonCallback(_window, mouse_button_callback);
+		glfwSetCursorPosCallback(_window, mouse_position_callback);
 	}
 	void Finish()
 	{

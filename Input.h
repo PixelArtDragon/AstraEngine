@@ -4,14 +4,8 @@
 #include <unordered_set>
 #include <glm\vec2.hpp>
 #include "KeyCodes.h"
+#include "InputType.h"
 
-typedef int MOUSE_BUTTON;
-
-enum class InputType {
-	Key_Pressed,
-	Key_Released,
-	Key_Down
-};
 namespace Input
 {
 	 void KeyPressed(KeyCode key);

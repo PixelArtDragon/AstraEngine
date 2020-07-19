@@ -8,6 +8,8 @@
 #include "GLDebug.h"
 #include <glm/gtx/compatibility.hpp>
 
+#include "UI.h"
+
 namespace Rendering {
 
 	Camera* camera;
@@ -37,9 +39,10 @@ namespace Rendering {
 		rendering_options.window_bounds = Window::GetViewport();
 		rendering_options.depth_enabled = true;
 		rendering_options.depth_function = GL_LEQUAL;
+		rendering_options.stencil_enabled = true;
 		rendering_options.clear_depth = 1.0f;
 		rendering_options.clear_color = glm::vec4(0.0, 0.5, 0.5, 0.0);
-		rendering_options.clear_bits = GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT;
+		rendering_options.clear_bits = GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT;
 		rendering_options.culling_enabled = true;
 		rendering_options.cull_face = GL_BACK;
 
@@ -47,6 +50,9 @@ namespace Rendering {
 
 		//glEnable(GL_BLEND);
 		//glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		glDrawBuffer(GL_BACK);
+		glReadBuffer(GL_BACK);
+		glBindFramebuffer(GL_FRAMEBUFFER, 0);
 		checkError();
 	}
 	void Reshape(glm::vec2 newDimensions)
@@ -76,6 +82,9 @@ namespace Rendering {
 	}
 	void RenderFrame()
 	{
+		//glClearStencil(0xFF);
+		//glDisable(GL_STENCIL_TEST);
+		//glDisable(GL_FRAMEBUFFER_SRGB);
 		if (light_source != nullptr) {
 			light_source->BeginRender();
 			for (size_t i = 0; i < ordered_drawables.size(); i++) {
@@ -83,8 +92,25 @@ namespace Rendering {
 			}
 			light_source->EndRender();
 		}
-		rendering_options.Apply();
+		//rendering_options.Apply();
+		glBindFramebuffer(GL_FRAMEBUFFER, 0);
+		Rect viewport = Window::GetViewport();
+		glViewport(0, 0, viewport.width, viewport.height);
+		glClearColor(0.0f, 0.5f, 0.5f, 0.0f);
+		glClearDepth(1.0f);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
+		glDepthMask(GL_TRUE);
+		glEnable(GL_CULL_FACE);
+		glEnable(GL_STENCIL_TEST);
+		glCullFace(GL_BACK);
+		glDisable(GL_SAMPLE_ALPHA_TO_COVERAGE);
+		glDisable(GL_SAMPLE_COVERAGE);
+		glDisable(GL_BLEND);
+		glDisable(GL_ALPHA_TEST);
 		DrawDrawables();
+		UI::Render();
+		glDepthMask(GL_TRUE);
+
 	}
 	void AddDrawable(Drawable3D * drawable)
 	{

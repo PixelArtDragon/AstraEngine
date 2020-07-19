@@ -10,7 +10,7 @@ namespace Rendering {
 		_render_options.window_bounds = Rect(0, 0, size, size);
 		_render_options.depth_enabled = true;
 		_render_options.clear_depth = 1.0f;
-		_render_options.clear_bits = GL_DEPTH_BUFFER_BIT;
+		_render_options.clear_bits = GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT;
 		_render_options.culling_enabled = true;
 		_render_options.cull_face = GL_FRONT;
 		_render_options.depth_function = GL_LEQUAL;

@@ -7,6 +7,7 @@
 namespace Window {
 
 	GLFWwindow* _window;
+	std::string title;
 
 	void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods) {
 		switch (action)
@@ -122,5 +123,14 @@ namespace Window {
 	Window * GetWindowPointer()
 	{
 		return _window;
+	}
+
+	std::string GetTitle() {
+		return title;
+	}
+
+	void SetTitle(const std::string & newTitle) {
+		title = newTitle;
+		glfwSetWindowTitle(_window, newTitle.c_str());
 	}
 }

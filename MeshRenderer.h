@@ -21,7 +21,7 @@ namespace Rendering {
 
 		bool triangles_streamed;
 		bool vertices_streamed;
-	private:
+	protected:
 
 		GLuint vao;
 		GLuint vbo;

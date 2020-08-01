@@ -20,3 +20,11 @@ Rendering::Vertex::Vertex(glm::vec3 position, glm::vec2 uv, glm::vec3 normal)
 	this->uv = uv;
 	this->normal = normal;
 }
+
+Rendering::Vertex::Vertex(glm::vec3 position, glm::vec2 uv, glm::vec3 normal, glm::vec4 color)
+{
+	this->position = position;
+	this->uv = uv;
+	this->normal = normal;
+	this->color = color;
+}

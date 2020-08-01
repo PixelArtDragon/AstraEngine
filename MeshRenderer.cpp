@@ -18,14 +18,17 @@ namespace Rendering {
 		glGenBuffers(1, &ebo);
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
 
-		glEnableVertexAttribArray(0);
+		glEnableVertexAttribArray(position_index);
 		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, Vertex::position));
 
-		glEnableVertexAttribArray(1);
+		glEnableVertexAttribArray(uv_index);
 		glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)(offsetof(Vertex, Vertex::uv)));
 
-		glEnableVertexAttribArray(2);
+		glEnableVertexAttribArray(normal_index);
 		glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)(offsetof(Vertex, Vertex::normal)));
+
+		glEnableVertexAttribArray(color_index);
+		glVertexAttribPointer(3, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)(offsetof(Vertex, Vertex::color)));
 		
 		triangles_streamed = false;
 		vertices_streamed = false;

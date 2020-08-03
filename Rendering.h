@@ -2,6 +2,7 @@
 #include <glm/vec2.hpp>
 #include "Shader.h"
 #include "Drawable3D.h"
+#include "Renderable.h"
 #include "Camera.h"
 #include "LightSource.h"
 #include "RenderOptions.h"
@@ -16,6 +17,9 @@ namespace Rendering {
 	
 	void AddDrawable(Drawable3D* drawable);
 	void RemoveDrawable(Drawable3D* drawable);
+
+	void AddRenderable(Renderable* renderable);
+	void RemoveRenderable(Renderable* renderable);
 
 	Camera & GetActiveCamera();
 	extern Camera * camera;

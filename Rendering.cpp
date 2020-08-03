@@ -29,7 +29,8 @@ namespace Rendering {
 	std::unordered_map<std::string, Shader*> shaders;
 	std::unordered_map<std::string, Material*> materials;
 	std::unordered_map<std::string, Drawable3D*> drawables;
-
+	
+	std::vector<Renderable*> renderables;
 	std::vector<Drawable3D*> ordered_drawables;
 
 	void Init() {
@@ -80,6 +81,12 @@ namespace Rendering {
 			ordered_drawables[i]->Draw();
 		}
 	}
+	void RenderRenderables() {
+		for (size_t i = 0; i < renderables.size(); i++)
+		{
+			renderables[i]->Draw();
+		}
+	}
 	void RenderFrame()
 	{
 		//glClearStencil(0xFF);
@@ -125,6 +132,15 @@ namespace Rendering {
 		auto it = std::find(ordered_drawables.begin(), ordered_drawables.end(), drawable);
 		if (it != ordered_drawables.end()) {
 			ordered_drawables.erase(it);
+		}
+	}
+	void AddRenderable(Renderable* renderable) {
+		renderables.push_back(renderable);
+	}
+	void RemoveRenderable(Renderable* renderable) {
+		auto it = std::find(renderables.begin(), renderables.end(), renderable);
+		if (it != renderables.end()) {
+			renderables.erase(it);
 		}
 	}
 

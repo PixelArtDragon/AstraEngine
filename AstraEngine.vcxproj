@@ -149,6 +149,7 @@
     <ClCompile Include="MeshRenderer.cpp" />
     <ClCompile Include="PerspectiveCamera.cpp" />
     <ClCompile Include="Rect.cpp" />
+    <ClCompile Include="Renderable.cpp" />
     <ClCompile Include="Rendering.cpp" />
     <ClCompile Include="RenderOptions.cpp" />
     <ClCompile Include="Shader.cpp" />
@@ -184,6 +185,7 @@
     <ClInclude Include="MeshRenderer.h" />
     <ClInclude Include="PerspectiveCamera.h" />
     <ClInclude Include="Rect.h" />
+    <ClInclude Include="Renderable.h" />
     <ClInclude Include="Rendering.h" />
     <ClInclude Include="RenderOptions.h" />
     <ClInclude Include="Shader.h" />

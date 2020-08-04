@@ -115,6 +115,7 @@ namespace Rendering {
 		glDisable(GL_BLEND);
 		glDisable(GL_ALPHA_TEST);
 		DrawDrawables();
+		RenderRenderables();
 		UI::Render();
 		glDepthMask(GL_TRUE);
 

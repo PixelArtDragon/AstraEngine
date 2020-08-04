@@ -9,6 +9,7 @@ namespace Rendering {
 	{
 	public:
 		Material();
+		Material(Texture texture);
 		~Material();
 		std::vector<Texture> textures;
 	};

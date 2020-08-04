@@ -6,6 +6,11 @@ namespace Rendering {
 	{
 	}
 
+	Material::Material(Texture texture)
+	{
+		this->textures.push_back(texture);
+	}
+
 
 	Material::~Material()
 	{

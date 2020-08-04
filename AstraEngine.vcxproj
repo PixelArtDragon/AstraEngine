@@ -180,6 +180,7 @@
     <ClInclude Include="KeyCodes.h" />
     <ClInclude Include="LambdaUpdator.h" />
     <ClInclude Include="LightSource.h" />
+    <ClInclude Include="LoadedMaterials.h" />
     <ClInclude Include="LoadedShaders.h" />
     <ClInclude Include="Material.h" />
     <ClInclude Include="MeshRenderer.h" />

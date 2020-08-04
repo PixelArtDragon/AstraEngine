@@ -101,6 +101,23 @@ namespace Input {
 		Left_Alt = 342,
 		Right_Shift = 344,
 		Right_Control = 345,
-		Right_Alt = 346
+		Right_Alt = 346,
+		Numpad0 = 320,
+		Numpad1 = 321,
+		Numpad2 = 322,
+		Numpad3 = 323,
+		Numpad4 = 324,
+		Numpad5 = 325,
+		Numpad6 = 326,
+		Numpad7 = 327,
+		Numpad8 = 328,
+		Numpad9 = 329,
+		NumpadDecimal = 330,
+		NumpadDivide = 331,
+		NumpadMultiply = 332,
+		NumpadSubtract = 333,
+		NumpadAdd = 334,
+		NumpadEnter = 335,
+		NumpadEqual = 336
 	};
 }

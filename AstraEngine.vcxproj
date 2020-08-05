@@ -142,6 +142,7 @@
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="InputMapping.cpp" />
     <ClCompile Include="KeyCodes.cpp" />
+    <ClCompile Include="LambdaCallback.cpp" />
     <ClCompile Include="LambdaUpdator.cpp" />
     <ClCompile Include="LightSource.cpp" />
     <ClCompile Include="LoadedShaders.cpp" />
@@ -178,6 +179,7 @@
     <ClInclude Include="InputMapping.h" />
     <ClInclude Include="InputType.h" />
     <ClInclude Include="KeyCodes.h" />
+    <ClInclude Include="LambdaCallback.h" />
     <ClInclude Include="LambdaUpdator.h" />
     <ClInclude Include="LightSource.h" />
     <ClInclude Include="LoadedMaterials.h" />

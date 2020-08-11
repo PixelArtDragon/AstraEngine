@@ -14,7 +14,7 @@ Rendering::Texture::Texture(std::string image_file)
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 	// set texture filtering parameters
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST_MIPMAP_NEAREST);
 	int width, height, channels;
 	stbi_set_flip_vertically_on_load(true);
 	unsigned char* image = stbi_load(image_file.c_str(), &width, &height, &channels, STBI_rgb_alpha);

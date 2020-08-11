@@ -4,5 +4,5 @@
 #include <unordered_map>
 
 namespace Rendering {
-	std::unordered_map<std::string, Shader*> loadedShaders;
+	extern std::unordered_map<std::string, Shader*> loadedShaders;
 }

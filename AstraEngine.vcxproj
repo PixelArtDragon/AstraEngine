@@ -145,7 +145,9 @@
     <ClCompile Include="LambdaCallback.cpp" />
     <ClCompile Include="LambdaUpdator.cpp" />
     <ClCompile Include="LightSource.cpp" />
+    <ClCompile Include="LoadedMaterials.cpp" />
     <ClCompile Include="LoadedShaders.cpp" />
+    <ClCompile Include="LoadedTextures.cpp" />
     <ClCompile Include="Material.cpp" />
     <ClCompile Include="MeshRenderer.cpp" />
     <ClCompile Include="PerspectiveCamera.cpp" />

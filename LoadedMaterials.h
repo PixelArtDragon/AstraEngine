@@ -4,5 +4,5 @@
 #include <string>
 
 namespace Rendering {
-	std::unordered_map<std::string, Material*> loadedMaterials;
+	extern std::unordered_map<std::string, Material*> loadedMaterials;
 }
